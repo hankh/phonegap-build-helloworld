@@ -7,8 +7,9 @@ mobVoorraad-module tbv webshop
 
 
 (function() {
-  var afrondenorder, aorder, aproduct, bestel, bevestigorder, curproduct, orderbedrag, ordernr, orderstelen, toonproduct, tovoorraadpage, updateorder, updatevoorraad, vwbestel;
+  var mijndomein, afrondenorder, aorder, aproduct, bestel, bevestigorder, curproduct, orderbedrag, ordernr, orderstelen, toonproduct, tovoorraadpage, updateorder, updatevoorraad, vwbestel;
 
+  mijndomein = "http:/192.168.178.11:8002";
   aproduct = [];
 
   aorder = [];
@@ -54,7 +55,9 @@ mobVoorraad-module tbv webshop
   };
 
   updatevoorraad = function() {
-    $.getJSON("/xdata/voorraad/", function(data) {
+    var apiurl = mijndomein + "/xdata/voorraad/";
+    console.log(apiurl);
+    $.getJSON(apiurl, function(data) {
       var aregels, kleur, land, lengte, n, oms, prijs, prod, reg, s, voorraad, _i, _len, _results;
       aregels = data.results;
       s = '';
